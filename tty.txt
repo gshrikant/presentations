@@ -1,0 +1,58 @@
+# Lightning talk at Embedded Linux meetup (22 Oct)
+# Shrikant Giridhar
+
+######################
+shells, ttys and Linux
+######################
+
+
+The Ubiquitous Emulator
+
+# QEMU isn't special, all people using their fancy Macbooks
+# to the clunky Linux server run an emulator - the terminal
+# emulator. The terminal emulator mimics the exact
+# functionality of an old teletype terminal - modern terminals
+# are more or less compatible with VT100 video terminals of yore.
+
+TX and RX
+
+# More fundamentally, terminal emulators like xterm mimic the
+# 'serial' nature of the dumb terminals.
+• terminal ⇆ mainframe
+
+# Terminals relied on the mainframe (workstation) for all their
+# intelligence. This is not quite different from a modern UART
+# based shell - where the UART 
+• terminal ⇆ mainframe
+• embedded system ⇆ server (UART)
+
+# This was a thin-client before there were thin-clients. The 
+# VT-100 was one such dumb terminal offering from DEC, which
+# became quite popular.
+• terminal ⇆ mainframe
+• embedded system ⇆ server (UART)
+• “thin client”
+
+# Since the terminals didn't possess much in the terms of
+# processing capability on their own, the OS did this job for
+# them. Unix provided basic line editing capabilities for
+# users of the text terminals, called the Line Discipline.
+line disciplines
+
+# The default line discipline under Linux (N_TTY) provides
+# rudimentary line editing features - backspaces, linefeeds
+# etc. Advanced features need to be handled by applications.
+line disciplines
+- N_TTY, SLIP, PPP, IrDA
+
+# As the physical terminal disappeared it made way for an
+# integrated system where the kernel took over the terminal
+# emulation into the kernel - with the VGA and the keyboard
+# drivers providing the stdin and stdout.
+Move it to userland ⇆ PTY
+
+# Look into
+• st - simple terminal from suckless
+• sh - shell from xv6, Unix v6 adaptation (MIT)
+• linusakesson.net/programming/tty
+• man pts, console_codes, termios  
